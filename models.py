@@ -12,6 +12,7 @@ class Customer :
         self.fullname = fullname
         self.age = age
         self.address = address
+        self.phonenumber = phonenumber
         self.checkin_date = checkin_date
         self.checkout_date = checkout_date
         self.nationality = nationality
