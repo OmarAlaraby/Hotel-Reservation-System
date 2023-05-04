@@ -11,8 +11,6 @@ class Customer :
     GLOBAL_ID_COUNT = 1
     
     def __init__(self,fullname,age,address,phonenumber,checkin_date,checkout_date,nationality,payment,room_id,national_id,email,reservation_status):
-        self.id = Customer.GLOBAL_ID_COUNT
-        Customer.GLOBAL_ID_COUNT += 1
         self.fullname = fullname
         self.age = age
         self.address = address

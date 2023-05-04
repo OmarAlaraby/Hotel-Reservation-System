@@ -43,6 +43,35 @@ def add_new_customer():
 
 
 
+# ------------------ search ------------------ %
+
+def search_with(name):
+    with open('data_files/Customers.txt' , 'r') as Customers:
+        data = Customers.readlines()
+        
+        for customer in data:
+            check = list(eval(customer))
+            if check[0] == name:
+                return check
+            
+    return 'Not Found'
+    
+            
+
+
+def Get_Customer():
+    name = input('name : ')
+    return search_with(name)
+
+
+# ----------------- view rooms --------------- #
+
+def View_All_rooms():
+    with open('data_files/Rooms.txt' , 'r') as RoomsData:
+        rooms = RoomsData.readlines()
+    
+    for room in rooms:
+        print(room)
 
 # ------------------ main -------------------- #
 
@@ -58,9 +87,9 @@ def main():
     if operation == '1':
         add_new_customer()
     elif operation == '2':
-        pass
+        print(Get_Customer())
     elif operation == '3':
-        pass
+        View_All_rooms()
     else:
         raise KeyError('Invalid Type')
 
