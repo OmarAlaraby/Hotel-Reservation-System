@@ -1,3 +1,4 @@
+
 class Room :
     def __init__(self, room_id, capicity,status,room_type,rent):
         self.room_id = room_id
@@ -7,8 +8,11 @@ class Room :
         self.rent = rent
         
 class Customer :
-    def __init__(self,id, fullname,age,address,phonenumber,checkin_date,checkout_date,nationality,payment,object_room,national_id,email,reservation_status):
-        self.id = id
+    GLOBAL_ID_COUNT = 1
+    
+    def __init__(self,fullname,age,address,phonenumber,checkin_date,checkout_date,nationality,payment,room_id,national_id,email,reservation_status):
+        self.id = Customer.GLOBAL_ID_COUNT
+        Customer.GLOBAL_ID_COUNT += 1
         self.fullname = fullname
         self.age = age
         self.address = address
@@ -17,7 +21,8 @@ class Customer :
         self.checkout_date = checkout_date
         self.nationality = nationality
         self.payment = payment
-        self.object_room = object_room
+        self.room_id = room_id
         self.national_id = national_id
         self.email = email
         self.reservation_status = reservation_status
+        
