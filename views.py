@@ -23,8 +23,22 @@ def Get_Available_Room():
             break
     return room_id
 
+
+def get_ID():
+    with open('data_files/Id.txt' , 'r') as IdFile:
+        id = IdFile.readline()
+    
+    new_id = id
+    id = int(id) + 1
+    
+    with open('data_files/Id.txt' , 'w') as IdFile:
+        IdFile.write(str(id))
+    
+    return new_id
+
 def add_new_customer():
     data = []
+    data.append(get_ID())
     data.append(input('name : '))
     data.append(input('age : '))
     data.append(input('address : '))
@@ -45,13 +59,13 @@ def add_new_customer():
 
 # ------------------ search ------------------ %
 
-def search_with(name):
+def search_with(id):
     with open('data_files/Customers.txt' , 'r') as Customers:
         data = Customers.readlines()
         
         for customer in data:
             check = list(eval(customer))
-            if check[0] == name:
+            if check[0] == id:
                 return check
             
     return 'Not Found'
@@ -60,8 +74,8 @@ def search_with(name):
 
 
 def Get_Customer():
-    name = input('name : ')
-    return search_with(name)
+    id = input('ID : ')
+    return search_with(id)
 
 
 # ----------------- view rooms --------------- #

@@ -8,9 +8,8 @@ class Room :
         self.rent = rent
         
 class Customer :
-    GLOBAL_ID_COUNT = 1
-    
-    def __init__(self,fullname,age,address,phonenumber,checkin_date,checkout_date,nationality,payment,room_id,national_id,email,reservation_status):
+    def __init__(self, id, fullname,age,address,phonenumber,checkin_date,checkout_date,nationality,payment,room_id,national_id,email,reservation_status):
+        self.id = id
         self.fullname = fullname
         self.age = age
         self.address = address
