@@ -74,7 +74,43 @@
         "kind": 2,
         "importPath": "views",
         "description": "views",
-        "peekOfCode": "def Get_Customer():\n    id = input('ID : ')\n    return search_with(id)\n# ----------------- view rooms --------------- #\ndef View_All_rooms():\n    with open('data_files/Rooms.txt' , 'r') as RoomsData:\n        rooms = RoomsData.readlines()\n    for room in rooms:\n        print(room)\n# ------------------ main -------------------- #",
+        "peekOfCode": "def Get_Customer():\n    id = input('ID : ')\n    return search_with(id)\n# ----------------- update cutsomer ------------ $\ndef save_data(customer):\n    with open('data_files/Customers.txt' , 'r') as Customers_file:\n        data = Customers_file.readlines()\n        for i , line in enumerate(data):\n            line = list(eval(line))\n            if line[0] == str(customer[0]):",
+        "detail": "views",
+        "documentation": {}
+    },
+    {
+        "label": "save_data",
+        "kind": 2,
+        "importPath": "views",
+        "description": "views",
+        "peekOfCode": "def save_data(customer):\n    with open('data_files/Customers.txt' , 'r') as Customers_file:\n        data = Customers_file.readlines()\n        for i , line in enumerate(data):\n            line = list(eval(line))\n            if line[0] == str(customer[0]):\n                line[1] = customer[1]\n                line[2] = customer[2]\n                data[i] = line\n                print('Data Saved')",
+        "detail": "views",
+        "documentation": {}
+    },
+    {
+        "label": "update_customer",
+        "kind": 2,
+        "importPath": "views",
+        "description": "views",
+        "peekOfCode": "def update_customer():\n    customer = 'Not Found'\n    first_loop = True\n    while customer == 'Not Found':\n        if not first_loop:\n            print(f'Customer with id = {customer_id} NOT FOUND ! ')\n        customer_id = input('Customer Id : ')\n        customer = search_with(customer_id)\n        first_loop = False\n    print(customer)",
+        "detail": "views",
+        "documentation": {}
+    },
+    {
+        "label": "delete_Customer",
+        "kind": 2,
+        "importPath": "views",
+        "description": "views",
+        "peekOfCode": "def delete_Customer():\n    customer = 'Not Found'\n    first_loop = True\n    while customer == 'Not Found':\n        if not first_loop:\n            print(f'Customer with id = {customer_id} NOT FOUND ! ')\n        customer_id = input('Customer Id : ')\n        customer = search_with(customer_id)\n        first_loop = False\n    with open('data_files/Customers.txt' , 'r') as Customers_file:",
+        "detail": "views",
+        "documentation": {}
+    },
+    {
+        "label": "view_all_customers",
+        "kind": 2,
+        "importPath": "views",
+        "description": "views",
+        "peekOfCode": "def view_all_customers():\n    with open('data_files/Customers.txt', 'r') as Customers_file:\n        data = Customers_file.readlines()\n        for line in data:\n            print(line)\n# ----------------- view rooms --------------- #\ndef View_All_rooms():\n    with open('data_files/Rooms.txt' , 'r') as RoomsData:\n        rooms = RoomsData.readlines()\n    for room in rooms:",
         "detail": "views",
         "documentation": {}
     },
@@ -92,7 +128,7 @@
         "kind": 2,
         "importPath": "views",
         "description": "views",
-        "peekOfCode": "def main():\n    # choose the operation type\n    print('1- Add new customer')\n    print('2- search for customer')\n    print('3- view Rooms')\n    operation = input('which operation you want to do ? \\n')\n    if operation == '1':\n        add_new_customer()\n    elif operation == '2':\n        print(Get_Customer())",
+        "peekOfCode": "def main():\n    # choose the operation type\n    print('1- Add new customer')\n    print('2- search for customer')\n    print('3- update customer')\n    print('4- delete customer')\n    print('5- show all customers')\n    print('6- view Rooms')\n    operation = input('which operation you want to do ? \\n')\n    if operation == '1':",
         "detail": "views",
         "documentation": {}
     }

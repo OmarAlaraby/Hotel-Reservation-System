@@ -1,5 +1,5 @@
-['1', 'available', 'single', '435\n']
-['2', 'available', 'double', '684\n']
+['1', 'unavailable', 'single', '435\n']
+['2', 'unavailable', 'double', '684\n']
 ['3', 'available', 'single', '204\n']
 ['4', 'available', 'single', '915\n']
 ['5', 'available', 'single', '748\n']
