@@ -23,3 +23,20 @@ class Customer :
         self.email = email
         self.reservation_status = reservation_status
         
+    def Print(self):
+        print("<---------------------Customer To Be Printed----------------------------->")
+        print(f"Id : {self.id}")
+        print(f"Name : {self.fullname}")
+        print(f"Age : {self.age}")
+        print(f"Address : {self.address}")
+        print(f"Phonenumber : {self.phonenumber}")
+        print(f"Checkin_date : {self.checkin_date}")
+        print(f"checkout_date : {self.checkout_date}")
+        print(f"Nationality : {self.nationality}")
+        print(f"Payment : {self.payment}")
+        print(f"Room Id : {self.room_id}")
+        print(f"National Id : {self.national_id}")
+        print(f"Email : {self.email}")
+        print(f"Reservation Status : {self.reservation_status}")
+        print("<---------------------Cutomer Printed ✔️----------------------------->")
+
