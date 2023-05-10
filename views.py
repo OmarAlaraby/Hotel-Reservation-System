@@ -90,19 +90,7 @@ def View_All_rooms():
 # ----------------- show all customers --------------- #
 
 def Print_Single_Customer(C):
-    All_Date = []
-    curr = ""
-    for idx in range(1, len(C) - 1):
-        if (C[idx] == ',' or C[idx] == ' '):
-            continue
-        elif (C[idx] == "'"):
-            if (len(curr) > 0):
-                All_Date.append(curr)
-                curr = ""
-            else:
-                continue
-        else:
-            curr+= C[idx]
+    All_Date = list(eval(C))
 
     newC = Customer(All_Date[0], All_Date[1], All_Date[2], All_Date[3], All_Date[4], All_Date[5], All_Date[6], All_Date[7], All_Date[8], All_Date[9], All_Date[10], All_Date[11], All_Date[12])
 
@@ -118,6 +106,14 @@ def show_all_customers():
 
     Customers_File.close()
 
+def show_all_available_rooms():
+    theRooms = open("data_files/Rooms.txt", "r")
+    for LINE in theRooms:
+        curRoom = list(eval(LINE))
+        # print(len(curRoom))
+        if curRoom[1] == 'available':
+            print(LINE)
+    theRooms.close()
 
 # ------------------ main -------------------- #
 
@@ -142,8 +138,8 @@ def main():
         View_All_rooms()
     elif operation == '6':
         show_all_customers()
-    # elif operation == '7':
-    #     show_all_available_rooms()
+    elif operation == '7':
+        show_all_available_rooms()
     # elif operation == '8':
     #     show_all_reserved_rooms()
     # elif operation == '10':
