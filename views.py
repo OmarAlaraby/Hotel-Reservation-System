@@ -78,6 +78,87 @@ def Get_Customer():
     return search_with(id)
 
 
+# ----------------- update cutsomer ------------ $
+
+
+def save_data(customer):
+    with open('data_files/Customers.txt' , 'r') as Customers_file:
+        data = Customers_file.readlines()
+        for i , line in enumerate(data):
+            line = list(eval(line))
+            
+            if line[0] == str(customer[0]):
+                line[1] = customer[1]
+                line[2] = customer[2]
+                data[i] = line
+                print('Data Saved')
+                break
+            
+    with open('data_files/Customers.txt' , 'w') as Customers_file:
+        for line in data:
+            Customers_file.write('\n' + str(line) + '\n')
+
+
+def update_customer():
+    
+    customer = 'Not Found'
+    first_loop = True
+    
+    while customer == 'Not Found':
+        if not first_loop:
+            print(f'Customer with id = {customer_id} NOT FOUND ! ')
+            
+        customer_id = input('Customer Id : ')
+        customer = search_with(customer_id)
+        first_loop = False
+    
+    print(customer)
+
+    new_name = input('New Name : ')
+    customer[1] = new_name
+    new_age = input('New Age : ')
+    customer[2] = new_age
+        
+    save_data(customer)
+    
+
+# ----------------- Delete Customer ---------- #
+
+def delete_Customer():
+    customer = 'Not Found'
+    first_loop = True
+    
+    while customer == 'Not Found':
+        if not first_loop:
+            print(f'Customer with id = {customer_id} NOT FOUND ! ')
+            
+        customer_id = input('Customer Id : ')
+        customer = search_with(customer_id)
+        first_loop = False
+        
+    with open('data_files/Customers.txt' , 'r') as Customers_file:
+        data = Customers_file.readlines()
+        for i , line in enumerate(data):
+            line = list(eval(line))
+            
+            if line[0] == str(customer[0]):
+                data.pop(i)
+                print('Customer Deleted')
+                break
+            
+    with open('data_files/Customers.txt' , 'w') as Customers_file:
+        for line in data:
+            Customers_file.write(str(line))
+
+
+# ---------------- view customers ------------- #
+
+def view_all_customers():
+    with open('data_files/Customers.txt', 'r') as Customers_file:
+        data = Customers_file.readlines()
+        for line in data:
+            print(line)
+
 # ----------------- view rooms --------------- #
 
 def View_All_rooms():
@@ -110,7 +191,6 @@ def show_all_available_rooms():
     theRooms = open("data_files/Rooms.txt", "r")
     for LINE in theRooms:
         curRoom = list(eval(LINE))
-        # print(len(curRoom))
         if curRoom[1] == 'available':
             print(LINE)
     theRooms.close()
@@ -122,8 +202,11 @@ def main():
     # choose the operation type
     print('1- Add new customer')
     print('2- search for customer')
-    print('3- view Rooms')
-    print('6- show all customers')
+    print('3- update customer')
+    print('4- delete customer')
+    print('5- show all customers')
+    print('6- view Rooms')
+  
     print('7- show all available rooms')
     print('8- show all reserved rooms')
     print('10- show hotel data')
@@ -135,11 +218,15 @@ def main():
     elif operation == '2':
         print(Get_Customer())
     elif operation == '3':
-        View_All_rooms()
-    elif operation == '6':
+        update_customer()
+    elif operation == '4':
+        delete_Customer()
+    elif operation == '5':
         show_all_customers()
     elif operation == '7':
         show_all_available_rooms()
+    # elif operation == '7':
+    #     show_all_available_rooms()
     # elif operation == '8':
     #     show_all_reserved_rooms()
     # elif operation == '10':
