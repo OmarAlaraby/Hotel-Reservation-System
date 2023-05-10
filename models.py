@@ -24,7 +24,6 @@ class Customer :
         self.reservation_status = reservation_status
         
     def Print(self):
-        print("<---------------------Customer To Be Printed----------------------------->")
         print(f"Id : {self.id}")
         print(f"Name : {self.fullname}")
         print(f"Age : {self.age}")
@@ -38,5 +37,4 @@ class Customer :
         print(f"National Id : {self.national_id}")
         print(f"Email : {self.email}")
         print(f"Reservation Status : {self.reservation_status}")
-        print("<---------------------Cutomer Printed ✔️----------------------------->")
 

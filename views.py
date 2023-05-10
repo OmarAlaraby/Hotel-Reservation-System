@@ -111,8 +111,10 @@ def Print_Single_Customer(C):
 def show_all_customers():
     Customers_File = open("data_files/Customers.txt", "r")
     All_Customers = Customers_File.readlines()
-    for C in All_Customers:
-        Print_Single_Customer(C)
+    for idx in range(len(All_Customers)):
+        print(f"                   Customer {idx+1} To Be Printed")
+        Print_Single_Customer(All_Customers[idx])
+        print("=====================================================================\n")
 
     Customers_File.close()
 
