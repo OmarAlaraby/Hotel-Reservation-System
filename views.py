@@ -87,6 +87,36 @@ def View_All_rooms():
     for room in rooms:
         print(room)
 
+# ----------------- show all customers --------------- #
+
+def Print_Single_Customer(C):
+    All_Date = []
+    curr = ""
+    for idx in range(1, len(C) - 1):
+        if (C[idx] == ',' or C[idx] == ' '):
+            continue
+        elif (C[idx] == "'"):
+            if (len(curr) > 0):
+                All_Date.append(curr)
+                curr = ""
+            else:
+                continue
+        else:
+            curr+= C[idx]
+
+    newC = Customer(All_Date[0], All_Date[1], All_Date[2], All_Date[3], All_Date[4], All_Date[5], All_Date[6], All_Date[7], All_Date[8], All_Date[9], All_Date[10], All_Date[11], All_Date[12])
+
+    newC.Print()
+
+def show_all_customers():
+    Customers_File = open("data_files/Customers.txt", "r")
+    All_Customers = Customers_File.readlines()
+    for C in All_Customers:
+        Print_Single_Customer(C)
+
+    Customers_File.close()
+
+
 # ------------------ main -------------------- #
 
 def main():
@@ -95,6 +125,10 @@ def main():
     print('1- Add new customer')
     print('2- search for customer')
     print('3- view Rooms')
+    print('6- show all customers')
+    print('7- show all available rooms')
+    print('8- show all reserved rooms')
+    print('10- show hotel data')
     
     operation = input('which operation you want to do ? \n')
     
@@ -104,6 +138,14 @@ def main():
         print(Get_Customer())
     elif operation == '3':
         View_All_rooms()
+    elif operation == '6':
+        show_all_customers()
+    # elif operation == '7':
+    #     show_all_available_rooms()
+    # elif operation == '8':
+    #     show_all_reserved_rooms()
+    # elif operation == '10':
+    #     show_hotel_data()
     else:
         raise KeyError('Invalid Type')
 
