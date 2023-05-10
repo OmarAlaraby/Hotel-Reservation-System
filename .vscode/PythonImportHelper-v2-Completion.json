@@ -1,0 +1,99 @@
+[
+    {
+        "label": "Customer",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "Room",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "Roo",
+        "kind": 6,
+        "importPath": "models",
+        "description": "models",
+        "peekOfCode": "class Room :\n    def __init__(self, room_id, capicity,status,room_type,rent):\n        self.room_id = room_id\n        self.capicity = capicity\n        self.status = status\n        self.room_type = room_type\n        self.rent = rent\nclass Customer :\n    def __init__(self, id, fullname,age,address,phonenumber,checkin_date,checkout_date,nationality,payment,room_id,national_id,email,reservation_status):\n        self.id = id",
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "Custome",
+        "kind": 6,
+        "importPath": "models",
+        "description": "models",
+        "peekOfCode": "class Customer :\n    def __init__(self, id, fullname,age,address,phonenumber,checkin_date,checkout_date,nationality,payment,room_id,national_id,email,reservation_status):\n        self.id = id\n        self.fullname = fullname\n        self.age = age\n        self.address = address\n        self.phonenumber = phonenumber\n        self.checkin_date = checkin_date\n        self.checkout_date = checkout_date\n        self.nationality = nationality",
+        "detail": "models",
+        "documentation": {}
+    },
+    {
+        "label": "Get_Available_Room",
+        "kind": 2,
+        "importPath": "views",
+        "description": "views",
+        "peekOfCode": "def Get_Available_Room():\n    with open('data_files/Rooms.txt' , 'r') as RoomsData:\n        rooms = RoomsData.readlines()\n    room_id = 0\n    for i ,room in enumerate(rooms):\n        data = list(eval(room))\n        room_id = -1\n        if data[1] == 'available':\n            room_id = data[0]\n            data[1] = 'unavailable'",
+        "detail": "views",
+        "documentation": {}
+    },
+    {
+        "label": "get_ID",
+        "kind": 2,
+        "importPath": "views",
+        "description": "views",
+        "peekOfCode": "def get_ID():\n    with open('data_files/Id.txt' , 'r') as IdFile:\n        id = IdFile.readline()\n    new_id = id\n    id = int(id) + 1\n    with open('data_files/Id.txt' , 'w') as IdFile:\n        IdFile.write(str(id))\n    return new_id\ndef add_new_customer():\n    data = []",
+        "detail": "views",
+        "documentation": {}
+    },
+    {
+        "label": "add_new_customer",
+        "kind": 2,
+        "importPath": "views",
+        "description": "views",
+        "peekOfCode": "def add_new_customer():\n    data = []\n    data.append(get_ID())\n    data.append(input('name : '))\n    data.append(input('age : '))\n    data.append(input('address : '))\n    data.append(input('phone : '))\n    data.append(input('checkin_date : '))\n    data.append(input('checkout_date : '))\n    data.append(input('nationality : '))",
+        "detail": "views",
+        "documentation": {}
+    },
+    {
+        "label": "search_with",
+        "kind": 2,
+        "importPath": "views",
+        "description": "views",
+        "peekOfCode": "def search_with(id):\n    with open('data_files/Customers.txt' , 'r') as Customers:\n        data = Customers.readlines()\n        for customer in data:\n            check = list(eval(customer))\n            if check[0] == id:\n                return check\n    return 'Not Found'\ndef Get_Customer():\n    id = input('ID : ')",
+        "detail": "views",
+        "documentation": {}
+    },
+    {
+        "label": "Get_Customer",
+        "kind": 2,
+        "importPath": "views",
+        "description": "views",
+        "peekOfCode": "def Get_Customer():\n    id = input('ID : ')\n    return search_with(id)\n# ----------------- view rooms --------------- #\ndef View_All_rooms():\n    with open('data_files/Rooms.txt' , 'r') as RoomsData:\n        rooms = RoomsData.readlines()\n    for room in rooms:\n        print(room)\n# ------------------ main -------------------- #",
+        "detail": "views",
+        "documentation": {}
+    },
+    {
+        "label": "View_All_rooms",
+        "kind": 2,
+        "importPath": "views",
+        "description": "views",
+        "peekOfCode": "def View_All_rooms():\n    with open('data_files/Rooms.txt' , 'r') as RoomsData:\n        rooms = RoomsData.readlines()\n    for room in rooms:\n        print(room)\n# ------------------ main -------------------- #\ndef main():\n    # choose the operation type\n    print('1- Add new customer')\n    print('2- search for customer')",
+        "detail": "views",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "views",
+        "description": "views",
+        "peekOfCode": "def main():\n    # choose the operation type\n    print('1- Add new customer')\n    print('2- search for customer')\n    print('3- view Rooms')\n    operation = input('which operation you want to do ? \\n')\n    if operation == '1':\n        add_new_customer()\n    elif operation == '2':\n        print(Get_Customer())",
+        "detail": "views",
+        "documentation": {}
+    }
+]
