@@ -55,4 +55,3 @@
 ['55', 'available', 'single', '410\n']
 ['56', 'available', 'double', '418\n']
 ['57', 'available', 'double', '292\n']
-['58', 'available', 'double',
