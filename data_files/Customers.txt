@@ -2,3 +2,5 @@
 ['2', 'Omar Sanad', '21', 'Mohamed Ali Street Port Said', '01090789820', 'May 21st', 'May 29th', 'EGypt', '800', '2', '123456789', 'OmarSanad@gmail.com', 'reserved']
 ['3', 'Nedal', '24', 'Gaza', '1239043234', 'April 22nd', 'April 25th', 'palestinE', '200', '3', '234523445', 'Nedal@gmail.com', 'reserved']
 ['4', 'John', '33', 'New Yourk', '0987843342', 'Febuary 2nd', 'March 20th', 'America', '1000', '4', '098765688', 'John@yaho.com', 'reserved']
+['5', 'Ali', '40', 'Assuit', '012123456', 'June 1st', 'June 15th', 'EgypT', '100', '5', '12345', 'Ali@gmail.com', 'reserved']
+['6', 'Saleh', '29', 'jerusalem', '099123454', 'July 12th', 'July 23rd', 'palestine', '1200', '6', '55325', 'Saleh@gmail.com', 'reserved']
