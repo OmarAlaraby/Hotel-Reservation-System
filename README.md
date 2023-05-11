@@ -61,7 +61,7 @@
 - `show all reserved rooms`
 - `show all rooms`
 - `show hotel data`
-- `exit`
+- `Show Names Of Customers According To Nationality`
 
 <hr>
 
