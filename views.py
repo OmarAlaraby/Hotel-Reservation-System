@@ -1,14 +1,38 @@
 from models import Customer , Room
 
 # ['name', 'age' ,'address' , 'phone', 'checkin_date' , 'checkout_date', 'nationality', 'payment' , 'room_id' , 'national_id' , 'email' , 'reservation_status']
-# --------------- add new Customer ----------------- #
 
+# Global variables
 name_of_the_hotel = "Best Hotel in the world"
 adress_of_the_hotel = "El Giza | 23 Street"
 total_number_of_rooms = 57
 number_of_reserved_rooms = 0
 number_of_available_rooms = 57
 Nationalities_in_the_hotel = {}
+Nationalities_with_names = {}
+
+def print_all_nationalites():
+    AllTheCustomers = open("data_files/Customers.txt")
+    for LINE in AllTheCustomers:
+        currCustomer = list(eval(LINE))
+        currNationality = currCustomer[7]
+        currNationality = currNationality.upper()
+        if Nationalities_with_names.get(currNationality, "NOT_FOUND") == "NOT_FOUND":
+            Nationalities_with_names[currNationality] = [currCustomer[1]]
+        else:
+            Nationalities_with_names[currNationality].append(currCustomer[1])
+    AllTheCustomers.close()
+
+    print("{ ", end="")
+    for key in Nationalities_with_names:
+        print(key, end= " | ")
+    print("}")
+
+def get_names_of_nationality(theNationality):
+    print("{ ", end="")
+    for personName in Nationalities_with_names[theNationality]:
+        print(personName, end= " , ")
+    print("}")
 
 def Get_Hotel_Info():
     number_of_reserved_rooms = 0
@@ -252,10 +276,10 @@ def main():
     print('4- delete customer')
     print('5- show all customers')
     print('6- view Rooms')
-
     print('7- show all available rooms')
     print('8- show all reserved rooms')
     print('9- show hotel data')
+    print('10 - Show Names Of Customers According To Nationality')
     
     operation = input('which operation you want to do ? \n')
     
@@ -277,6 +301,11 @@ def main():
         show_all_reserved_rooms()
     elif operation == '9':
         Get_Hotel_Info()
+    elif operation == '10':
+        print_all_nationalites()
+        print()
+        currNationality = input('Write down one of the mentioned nationalities to view the customers who have this nationality \n>>>> ')
+        get_names_of_nationality(currNationality)
     else:
         raise KeyError('Invalid Type')
 
