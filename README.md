@@ -70,7 +70,28 @@
 # downloading the project
 git clone https://github.com/GergesHany/Hotel-reservation-system.git
 ```
-### After that, you need to open the project in your IDE and run it.
+
+intstall pipenv
+```bash
+pip install pipenv
+```
+
+###### go to project directory and run these commands
+
+```bash
+# activate the virtual environment
+pipenv shell
+```
+
+```bash
+pipenv install Pipfile
+pipenv shell
+```
+
+```bash
+# run the file
+python views.py
+```
 
 <hr><br>
 
