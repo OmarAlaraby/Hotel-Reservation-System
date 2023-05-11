@@ -187,6 +187,8 @@ def show_all_customers():
 
     Customers_File.close()
 
+# ------------------ Show Available Rooms -------------------- #
+
 def show_all_available_rooms():
     theRooms = open("data_files/Rooms.txt", "r")
     for LINE in theRooms:
@@ -206,7 +208,7 @@ def main():
     print('4- delete customer')
     print('5- show all customers')
     print('6- view Rooms')
-  
+
     print('7- show all available rooms')
     print('8- show all reserved rooms')
     print('10- show hotel data')
@@ -223,7 +225,7 @@ def main():
         delete_Customer()
     elif operation == '5':
         show_all_customers()
-    elif operation == '7':
+    elif operation == '6':
         show_all_available_rooms()
     # elif operation == '7':
     #     show_all_available_rooms()
