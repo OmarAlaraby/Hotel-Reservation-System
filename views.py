@@ -3,6 +3,21 @@ from models import Customer , Room
 # ['name', 'age' ,'address' , 'phone', 'checkin_date' , 'checkout_date', 'nationality', 'payment' , 'room_id' , 'national_id' , 'email' , 'reservation_status']
 # --------------- add new Customer ----------------- #
 
+name_of_the_hotel = "Best Hotel in the world"
+adress_of_the_hotel = "El Giza | 23 Street"
+total_number_of_rooms = 57
+number_of_reserved_rooms = 1
+number_of_available_rooms = 56
+Nationalities_in_the_hotel = {}
+
+def Get_Hotel_Info():
+    print("                     Hotel Information")
+    print(f"Hotel Name : {name_of_the_hotel}")
+    print(f"Address of the hotel : {adress_of_the_hotel}")
+    print("                     Rooms Information")
+    print(f"Total : {total_number_of_rooms}     |       Reserved : {number_of_reserved_rooms}     |       Available : {number_of_available_rooms}")
+
+
 def Get_Available_Room():
     with open('data_files/Rooms.txt' , 'r') as RoomsData:
         rooms = RoomsData.readlines()
@@ -213,7 +228,7 @@ def main():
 
     print('7- show all available rooms')
     print('8- show all reserved rooms')
-    print('10- show hotel data')
+    print('9- show hotel data')
     
     operation = input('which operation you want to do ? \n')
     
@@ -233,6 +248,8 @@ def main():
         show_all_available_rooms()
     elif operation == '8':
         show_all_reserved_rooms()
+    elif operation == '9':
+        Get_Hotel_Info()
     else:
         raise KeyError('Invalid Type')
 
