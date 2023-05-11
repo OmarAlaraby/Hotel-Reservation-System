@@ -151,14 +151,6 @@ def delete_Customer():
             Customers_file.write(str(line))
 
 
-# ---------------- view customers ------------- #
-
-def view_all_customers():
-    with open('data_files/Customers.txt', 'r') as Customers_file:
-        data = Customers_file.readlines()
-        for line in data:
-            print(line)
-
 # ----------------- view rooms --------------- #
 
 def View_All_rooms():
@@ -171,19 +163,7 @@ def View_All_rooms():
 # ----------------- show all customers --------------- #
 
 def Print_Single_Customer(C):
-    All_Date = []
-    curr = ""
-    for idx in range(1, len(C) - 1):
-        if (C[idx] == ',' or C[idx] == ' '):
-            continue
-        elif (C[idx] == "'"):
-            if (len(curr) > 0):
-                All_Date.append(curr)
-                curr = ""
-            else:
-                continue
-        else:
-            curr+= C[idx]
+    All_Date = list(eval(C))
 
     newC = Customer(All_Date[0], All_Date[1], All_Date[2], All_Date[3], All_Date[4], All_Date[5], All_Date[6], All_Date[7], All_Date[8], All_Date[9], All_Date[10], All_Date[11], All_Date[12])
 
@@ -199,6 +179,25 @@ def show_all_customers():
 
     Customers_File.close()
 
+# ------------------ Show Available Rooms -------------------- #
+
+def show_all_available_rooms():
+    theRooms = open("data_files/Rooms.txt", "r")
+    for LINE in theRooms:
+        curRoom = list(eval(LINE))
+        if curRoom[1] == 'available':
+            print(LINE)
+    theRooms.close()
+
+# ------------------ Show Reserved Rooms -------------------- #
+
+def show_all_reserved_rooms():
+    theRooms = open("data_files/Rooms.txt", "r")
+    for LINE in theRooms:
+        curRoom = list(eval(LINE))
+        if curRoom[1] != 'available':
+            print(LINE)
+    theRooms.close()
 
 # ------------------ main -------------------- #
 
@@ -211,7 +210,7 @@ def main():
     print('4- delete customer')
     print('5- show all customers')
     print('6- view Rooms')
-  
+
     print('7- show all available rooms')
     print('8- show all reserved rooms')
     print('10- show hotel data')
@@ -230,12 +229,10 @@ def main():
         show_all_customers()
     elif operation == '6':
         View_All_rooms()
-    # elif operation == '7':
-    #     show_all_available_rooms()
-    # elif operation == '8':
-    #     show_all_reserved_rooms()
-    # elif operation == '10':
-    #     show_hotel_data()
+    elif operation == '7':
+        show_all_available_rooms()
+    elif operation == '8':
+        show_all_reserved_rooms()
     else:
         raise KeyError('Invalid Type')
 
