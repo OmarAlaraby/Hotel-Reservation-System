@@ -197,6 +197,16 @@ def show_all_available_rooms():
             print(LINE)
     theRooms.close()
 
+# ------------------ Show Reserved Rooms -------------------- #
+
+def show_all_reserved_rooms():
+    theRooms = open("data_files/Rooms.txt", "r")
+    for LINE in theRooms:
+        curRoom = list(eval(LINE))
+        if curRoom[1] != 'available':
+            print(LINE)
+    theRooms.close()
+
 # ------------------ main -------------------- #
 
 def main():
@@ -226,13 +236,11 @@ def main():
     elif operation == '5':
         show_all_customers()
     elif operation == '6':
+        View_All_rooms()
+    elif operation == '7':
         show_all_available_rooms()
-    # elif operation == '7':
-    #     show_all_available_rooms()
-    # elif operation == '8':
-    #     show_all_reserved_rooms()
-    # elif operation == '10':
-    #     show_hotel_data()
+    elif operation == '8':
+        show_all_reserved_rooms()
     else:
         raise KeyError('Invalid Type')
 
