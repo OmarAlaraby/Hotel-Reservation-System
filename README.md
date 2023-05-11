@@ -76,7 +76,7 @@ intstall pipenv
 pip install pipenv
 ```
 
-###### go to project directory and run these commands
+go to the project directory and run these commands
 
 ```bash
 # activate the virtual environment
