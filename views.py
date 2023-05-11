@@ -151,14 +151,6 @@ def delete_Customer():
             Customers_file.write(str(line))
 
 
-# ---------------- view customers ------------- #
-
-def view_all_customers():
-    with open('data_files/Customers.txt', 'r') as Customers_file:
-        data = Customers_file.readlines()
-        for line in data:
-            print(line)
-
 # ----------------- view rooms --------------- #
 
 def View_All_rooms():
