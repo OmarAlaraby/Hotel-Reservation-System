@@ -85,7 +85,6 @@ pipenv shell
 
 ```bash
 pipenv install Pipfile
-pipenv shell
 ```
 
 ```bash
