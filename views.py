@@ -6,16 +6,43 @@ from models import Customer , Room
 name_of_the_hotel = "Best Hotel in the world"
 adress_of_the_hotel = "El Giza | 23 Street"
 total_number_of_rooms = 57
-number_of_reserved_rooms = 1
-number_of_available_rooms = 56
+number_of_reserved_rooms = 0
+number_of_available_rooms = 57
 Nationalities_in_the_hotel = {}
 
 def Get_Hotel_Info():
+    number_of_reserved_rooms = 0
+    number_of_available_rooms = 57
     print("                     Hotel Information")
     print(f"Hotel Name : {name_of_the_hotel}")
     print(f"Address of the hotel : {adress_of_the_hotel}")
+    
+
+    # Reading the nationality of all customers from the file Customers
+    AllTheCustomers = open("data_files/Customers.txt")
+    number_of_reserved_rooms = 0
+    number_of_available_rooms = 57
+    for LINE in AllTheCustomers:
+        number_of_reserved_rooms += 1
+        number_of_available_rooms -= 1
+        currCustomer = list(eval(LINE))
+        currNationality = currCustomer[7]
+        currNationality = currNationality.upper()
+        if Nationalities_in_the_hotel.get(currNationality, "NOT_FOUND") == "NOT_FOUND":
+            Nationalities_in_the_hotel[currNationality] = 1
+        else:
+            Nationalities_in_the_hotel[currNationality] += 1
+    AllTheCustomers.close()
+
+    # printing rooms information
     print("                     Rooms Information")
     print(f"Total : {total_number_of_rooms}     |       Reserved : {number_of_reserved_rooms}     |       Available : {number_of_available_rooms}")
+    print("                     Nationality Distribution")
+
+    # iterate over all the nationality to print the percentage of each nationality
+    for key in Nationalities_in_the_hotel:
+        print(key + " : " + str(Nationalities_in_the_hotel[key] / number_of_reserved_rooms * 100) + " %")
+    
 
 
 def Get_Available_Room():
