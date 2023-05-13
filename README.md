@@ -68,7 +68,7 @@
 ## `Installing`
 ```bash
 # downloading the project
-git clone https://github.com/GergesHany/Hotel-reservation-system.git
+git clone https://github.com/OmarAlaraby/Hotel-Reservation-System.git
 ```
 
 intstall pipenv
