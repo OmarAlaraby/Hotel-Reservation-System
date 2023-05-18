@@ -34,6 +34,33 @@
         "documentation": {}
     },
     {
+        "label": "print_all_nationalites",
+        "kind": 2,
+        "importPath": "views",
+        "description": "views",
+        "peekOfCode": "def print_all_nationalites():\n    AllTheCustomers = open(\"data_files/Customers.txt\")\n    for LINE in AllTheCustomers:\n        currCustomer = list(eval(LINE))\n        currNationality = currCustomer[7]\n        currNationality = currNationality.upper()\n        if Nationalities_with_names.get(currNationality, \"NOT_FOUND\") == \"NOT_FOUND\":\n            Nationalities_with_names[currNationality] = [currCustomer[1]]\n        else:\n            Nationalities_with_names[currNationality].append(currCustomer[1])",
+        "detail": "views",
+        "documentation": {}
+    },
+    {
+        "label": "get_names_of_nationality",
+        "kind": 2,
+        "importPath": "views",
+        "description": "views",
+        "peekOfCode": "def get_names_of_nationality(theNationality):\n    print(\"{ \", end=\"\")\n    for idx , personName in enumerate(Nationalities_with_names[theNationality]):\n        if idx == len(Nationalities_with_names[theNationality]) - 1:\n            print(personName, end= \" }\\n\")    \n        else:\n            print(personName, end= \" , \")\ndef Get_Hotel_Info():\n    number_of_reserved_rooms = 0\n    number_of_available_rooms = 57",
+        "detail": "views",
+        "documentation": {}
+    },
+    {
+        "label": "Get_Hotel_Info",
+        "kind": 2,
+        "importPath": "views",
+        "description": "views",
+        "peekOfCode": "def Get_Hotel_Info():\n    number_of_reserved_rooms = 0\n    number_of_available_rooms = 57\n    print(\"                     Hotel Information\")\n    print(f\"Hotel Name : {name_of_the_hotel}\")\n    print(f\"Address of the hotel : {adress_of_the_hotel}\")\n    # Reading the nationality of all customers from the file Customers\n    AllTheCustomers = open(\"data_files/Customers.txt\")\n    number_of_reserved_rooms = 0\n    number_of_available_rooms = 57",
+        "detail": "views",
+        "documentation": {}
+    },
+    {
         "label": "Get_Available_Room",
         "kind": 2,
         "importPath": "views",
@@ -106,20 +133,47 @@
         "documentation": {}
     },
     {
-        "label": "view_all_customers",
-        "kind": 2,
-        "importPath": "views",
-        "description": "views",
-        "peekOfCode": "def view_all_customers():\n    with open('data_files/Customers.txt', 'r') as Customers_file:\n        data = Customers_file.readlines()\n        for line in data:\n            print(line)\n# ----------------- view rooms --------------- #\ndef View_All_rooms():\n    with open('data_files/Rooms.txt' , 'r') as RoomsData:\n        rooms = RoomsData.readlines()\n    for room in rooms:",
-        "detail": "views",
-        "documentation": {}
-    },
-    {
         "label": "View_All_rooms",
         "kind": 2,
         "importPath": "views",
         "description": "views",
-        "peekOfCode": "def View_All_rooms():\n    with open('data_files/Rooms.txt' , 'r') as RoomsData:\n        rooms = RoomsData.readlines()\n    for room in rooms:\n        print(room)\n# ------------------ main -------------------- #\ndef main():\n    # choose the operation type\n    print('1- Add new customer')\n    print('2- search for customer')",
+        "peekOfCode": "def View_All_rooms():\n    with open('data_files/Rooms.txt' , 'r') as RoomsData:\n        rooms = RoomsData.readlines()\n    for room in rooms:\n        print(room)\n# ----------------- show all customers --------------- #\ndef Print_Single_Customer(C):\n    All_Date = list(eval(C))\n    newC = Customer(All_Date[0], All_Date[1], All_Date[2], All_Date[3], All_Date[4], All_Date[5], All_Date[6], All_Date[7], All_Date[8], All_Date[9], All_Date[10], All_Date[11], All_Date[12])\n    newC.Print()",
+        "detail": "views",
+        "documentation": {}
+    },
+    {
+        "label": "Print_Single_Customer",
+        "kind": 2,
+        "importPath": "views",
+        "description": "views",
+        "peekOfCode": "def Print_Single_Customer(C):\n    All_Date = list(eval(C))\n    newC = Customer(All_Date[0], All_Date[1], All_Date[2], All_Date[3], All_Date[4], All_Date[5], All_Date[6], All_Date[7], All_Date[8], All_Date[9], All_Date[10], All_Date[11], All_Date[12])\n    newC.Print()\ndef show_all_customers():\n    Customers_File = open(\"data_files/Customers.txt\", \"r\")\n    All_Customers = Customers_File.readlines()\n    for idx in range(len(All_Customers)):\n        print(f\"                   Customer {idx+1} To Be Printed\")\n        Print_Single_Customer(All_Customers[idx])",
+        "detail": "views",
+        "documentation": {}
+    },
+    {
+        "label": "show_all_customers",
+        "kind": 2,
+        "importPath": "views",
+        "description": "views",
+        "peekOfCode": "def show_all_customers():\n    Customers_File = open(\"data_files/Customers.txt\", \"r\")\n    All_Customers = Customers_File.readlines()\n    for idx in range(len(All_Customers)):\n        print(f\"                   Customer {idx+1} To Be Printed\")\n        Print_Single_Customer(All_Customers[idx])\n        print(\"=====================================================================\\n\")\n    Customers_File.close()\n# ------------------ Show Available Rooms -------------------- #\ndef show_all_available_rooms():",
+        "detail": "views",
+        "documentation": {}
+    },
+    {
+        "label": "show_all_available_rooms",
+        "kind": 2,
+        "importPath": "views",
+        "description": "views",
+        "peekOfCode": "def show_all_available_rooms():\n    theRooms = open(\"data_files/Rooms.txt\", \"r\")\n    for LINE in theRooms:\n        curRoom = list(eval(LINE))\n        if curRoom[1] == 'available':\n            print(LINE)\n    theRooms.close()\n# ------------------ Show Reserved Rooms -------------------- #\ndef show_all_reserved_rooms():\n    theRooms = open(\"data_files/Rooms.txt\", \"r\")",
+        "detail": "views",
+        "documentation": {}
+    },
+    {
+        "label": "show_all_reserved_rooms",
+        "kind": 2,
+        "importPath": "views",
+        "description": "views",
+        "peekOfCode": "def show_all_reserved_rooms():\n    theRooms = open(\"data_files/Rooms.txt\", \"r\")\n    for LINE in theRooms:\n        curRoom = list(eval(LINE))\n        if curRoom[1] != 'available':\n            print(LINE)\n    theRooms.close()\n# ------------------ main -------------------- #\ndef main():\n    # choose the operation type",
         "detail": "views",
         "documentation": {}
     },
@@ -128,7 +182,70 @@
         "kind": 2,
         "importPath": "views",
         "description": "views",
-        "peekOfCode": "def main():\n    # choose the operation type\n    print('1- Add new customer')\n    print('2- search for customer')\n    print('3- update customer')\n    print('4- delete customer')\n    print('5- show all customers')\n    print('6- view Rooms')\n    operation = input('which operation you want to do ? \\n')\n    if operation == '1':",
+        "peekOfCode": "def main():\n    # choose the operation type\n    print('1- Add new customer')\n    print('2- search for customer')\n    print('3- update customer')\n    print('4- delete customer')\n    print('5- show all customers')\n    print('6- view Rooms')\n    print('7- show all available rooms')\n    print('8- show all reserved rooms')",
+        "detail": "views",
+        "documentation": {}
+    },
+    {
+        "label": "name_of_the_hotel",
+        "kind": 5,
+        "importPath": "views",
+        "description": "views",
+        "peekOfCode": "name_of_the_hotel = \"Zolvers Hotel\"\nadress_of_the_hotel = \"Dawla El ICPC (SCU)\"\ntotal_number_of_rooms = 57\nnumber_of_reserved_rooms = 0\nnumber_of_available_rooms = 57\nNationalities_in_the_hotel = {}\nNationalities_with_names = {}\ndef print_all_nationalites():\n    AllTheCustomers = open(\"data_files/Customers.txt\")\n    for LINE in AllTheCustomers:",
+        "detail": "views",
+        "documentation": {}
+    },
+    {
+        "label": "adress_of_the_hotel",
+        "kind": 5,
+        "importPath": "views",
+        "description": "views",
+        "peekOfCode": "adress_of_the_hotel = \"Dawla El ICPC (SCU)\"\ntotal_number_of_rooms = 57\nnumber_of_reserved_rooms = 0\nnumber_of_available_rooms = 57\nNationalities_in_the_hotel = {}\nNationalities_with_names = {}\ndef print_all_nationalites():\n    AllTheCustomers = open(\"data_files/Customers.txt\")\n    for LINE in AllTheCustomers:\n        currCustomer = list(eval(LINE))",
+        "detail": "views",
+        "documentation": {}
+    },
+    {
+        "label": "total_number_of_rooms",
+        "kind": 5,
+        "importPath": "views",
+        "description": "views",
+        "peekOfCode": "total_number_of_rooms = 57\nnumber_of_reserved_rooms = 0\nnumber_of_available_rooms = 57\nNationalities_in_the_hotel = {}\nNationalities_with_names = {}\ndef print_all_nationalites():\n    AllTheCustomers = open(\"data_files/Customers.txt\")\n    for LINE in AllTheCustomers:\n        currCustomer = list(eval(LINE))\n        currNationality = currCustomer[7]",
+        "detail": "views",
+        "documentation": {}
+    },
+    {
+        "label": "number_of_reserved_rooms",
+        "kind": 5,
+        "importPath": "views",
+        "description": "views",
+        "peekOfCode": "number_of_reserved_rooms = 0\nnumber_of_available_rooms = 57\nNationalities_in_the_hotel = {}\nNationalities_with_names = {}\ndef print_all_nationalites():\n    AllTheCustomers = open(\"data_files/Customers.txt\")\n    for LINE in AllTheCustomers:\n        currCustomer = list(eval(LINE))\n        currNationality = currCustomer[7]\n        currNationality = currNationality.upper()",
+        "detail": "views",
+        "documentation": {}
+    },
+    {
+        "label": "number_of_available_rooms",
+        "kind": 5,
+        "importPath": "views",
+        "description": "views",
+        "peekOfCode": "number_of_available_rooms = 57\nNationalities_in_the_hotel = {}\nNationalities_with_names = {}\ndef print_all_nationalites():\n    AllTheCustomers = open(\"data_files/Customers.txt\")\n    for LINE in AllTheCustomers:\n        currCustomer = list(eval(LINE))\n        currNationality = currCustomer[7]\n        currNationality = currNationality.upper()\n        if Nationalities_with_names.get(currNationality, \"NOT_FOUND\") == \"NOT_FOUND\":",
+        "detail": "views",
+        "documentation": {}
+    },
+    {
+        "label": "Nationalities_in_the_hotel",
+        "kind": 5,
+        "importPath": "views",
+        "description": "views",
+        "peekOfCode": "Nationalities_in_the_hotel = {}\nNationalities_with_names = {}\ndef print_all_nationalites():\n    AllTheCustomers = open(\"data_files/Customers.txt\")\n    for LINE in AllTheCustomers:\n        currCustomer = list(eval(LINE))\n        currNationality = currCustomer[7]\n        currNationality = currNationality.upper()\n        if Nationalities_with_names.get(currNationality, \"NOT_FOUND\") == \"NOT_FOUND\":\n            Nationalities_with_names[currNationality] = [currCustomer[1]]",
+        "detail": "views",
+        "documentation": {}
+    },
+    {
+        "label": "Nationalities_with_names",
+        "kind": 5,
+        "importPath": "views",
+        "description": "views",
+        "peekOfCode": "Nationalities_with_names = {}\ndef print_all_nationalites():\n    AllTheCustomers = open(\"data_files/Customers.txt\")\n    for LINE in AllTheCustomers:\n        currCustomer = list(eval(LINE))\n        currNationality = currCustomer[7]\n        currNationality = currNationality.upper()\n        if Nationalities_with_names.get(currNationality, \"NOT_FOUND\") == \"NOT_FOUND\":\n            Nationalities_with_names[currNationality] = [currCustomer[1]]\n        else:",
         "detail": "views",
         "documentation": {}
     }

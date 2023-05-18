@@ -3,8 +3,8 @@ from models import Customer , Room
 # ['name', 'age' ,'address' , 'phone', 'checkin_date' , 'checkout_date', 'nationality', 'payment' , 'room_id' , 'national_id' , 'email' , 'reservation_status']
 
 # Global variables
-name_of_the_hotel = "Best Hotel in the world"
-adress_of_the_hotel = "El Giza | 23 Street"
+name_of_the_hotel = "Zolvers Hotel"
+adress_of_the_hotel = "Dawla El ICPC (SCU)"
 total_number_of_rooms = 57
 number_of_reserved_rooms = 0
 number_of_available_rooms = 57
@@ -24,15 +24,19 @@ def print_all_nationalites():
     AllTheCustomers.close()
 
     print("{ ", end="")
-    for key in Nationalities_with_names:
-        print(key, end= " | ")
-    print("}")
+    for idx , key in enumerate(Nationalities_with_names):
+        if idx == len(Nationalities_with_names) - 1:
+            print(key, end= " }\n")
+        else:
+            print(key, end= " | ")
 
 def get_names_of_nationality(theNationality):
     print("{ ", end="")
-    for personName in Nationalities_with_names[theNationality]:
-        print(personName, end= " , ")
-    print("}")
+    for idx , personName in enumerate(Nationalities_with_names[theNationality]):
+        if idx == len(Nationalities_with_names[theNationality]) - 1:
+            print(personName, end= " }\n")    
+        else:
+            print(personName, end= " , ")
 
 def Get_Hotel_Info():
     number_of_reserved_rooms = 0
